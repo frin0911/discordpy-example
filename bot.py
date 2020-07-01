@@ -38,6 +38,7 @@ COLOR = 0xFFFFFF    # 원하는 색깔을 지정하세요. (Embed 메시지 출�
 bot = commands.Bot(command_prefix=__PREFIX__, case_insensitive=True)
 # bot.remove_command("help") 이 구문은 help 명령어를 삭제할지 말지를 결정합니다. 삭제한다면 직접 만드실 수 있습니다.
 
+
 @bot.event
 async def on_ready():
     print(f'='*40 +
@@ -50,11 +51,19 @@ async def on_ready():
             type=discord.ActivityType.playing,
             name=f'상태를 입력하세요.'))
 
+    
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.errors.CommandNotFound):
+        return None
+    
+    
 @bot.command(name='핑')
 async def ping(ctx):
     embed = discord.Embed(title='지연시간', color=COLOR,
                           description=f'{int(round(bot.latency * 1000, 0))}ms')
     return await ctx.send(embed=embed)
+
 
 @bot.command(name='프로필', aliases=['유저'])
 async def profile(ctx, u: str = None):
@@ -74,6 +83,7 @@ async def profile(ctx, u: str = None):
     embed.add_field(name='접속 일자', value=joined_at)
     embed.set_image(url=user.avatar_url)
     return await ctx.send(embed=embed)
+
 
 @bot.command(name='서버')
 async def server(ctx):
@@ -97,12 +107,14 @@ async def server(ctx):
     embed.set_image(url=ctx.guild.banner_url)
     return await ctx.send(embed=embed)
 
+
 @bot.command(aliases=['주사위'])
 async def dice(ctx):
     variable = str(random.randint(1,6))
     e = discord.Embed(title='주사위', color=COLOR,
                       description=f'{variable}(이)가 나왔습니다.')
     return await ctx.send(embed=e)
+
 
 @bot.command(name='삭제', aliases=['제거'])
 async def purge(ctx, limit: str = None):
@@ -120,6 +132,7 @@ async def purge(ctx, limit: str = None):
                       description=f'{limit}개의 메시지가 삭제되었습니다.'
                                   f'\nBy: {ctx.author.mention}')
     return await ctx.send(embed=embed, delete_after=5)
+
 
 @bot.command(name='추방', aliases=['킥'])
 async def kick(ctx, user: str = None, *, reason: str = None):
@@ -143,6 +156,7 @@ async def kick(ctx, user: str = None, *, reason: str = None):
                                   f'\n사유: {reason}')
     return await ctx.send(ctx.author.mention, embed=embed)
 
+
 @bot.command(name='차단', aliases=['밴'])
 async def ban(ctx, user: str = None, *, reason: str = None):
     if not ctx.author.guild_permissions.ban_members:
@@ -164,6 +178,7 @@ async def ban(ctx, user: str = None, *, reason: str = None):
                                   f'\nBy: {ctx.author.mention}'
                                   f'\n사유: {reason}')
     return await ctx.send(ctx.author.mention, embed=embed)
+
 
 @bot.command(name='공지')
 async def announce(ctx, *, content: str = None):
