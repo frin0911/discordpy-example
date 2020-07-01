@@ -18,3 +18,11 @@ CMD를 열어 `pip install discord.py`를 입력하여 discord.py 모듈을 설�
 PATH를 체크하지 않으셨다면 `py -m pip install discord.py`를 입력하시면 설치됩니다.
 
 모듈이 설치되었다면 해당 파일을 다운받은 후 실행시키면 됩니다.
+
+
+# 버그 제보
+이미 봇은 여러 차례의 검사를 통하여 발생할 수 있는 버그를 잡아내었습니다.
+그럼에도 불구하고, 예기치 않은 버그가 발생할 경우, 
+https://github.com/frin0911/discordpy-example/issues 에서 양식에 맞게 버그를 제보해주시기 바랍니다.
+
+단순한 사용자의 문제라면 답변해드리지 않습니다.
