@@ -1,4 +1,4 @@
-# discordpy-example
+# 디스코드 봇 예제
 discord.py rewrite 버전으로 제작된 간단한 한국어 디스코드 챗봇입니다.
 on_message 이벤트가 아닌, 데코레이터(discord.ext 모듈)를 사용하여 명령어를 제작하였습니다.
 
