@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2020 UNKNOWN#1234
+Copyright (c) 2020 UNKNOWN
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,11 +20,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-해당 봇 파일의 전부 또는 일부를 사용하신다면 반드시 깃허브 리포지토리 링크와
-개발자 UNKNOWN#1234을 도움말 명령어 혹은 기여자 목록에 기재해주시기 바랍니다.
-
-수정 및 2차 배포는 가능하나, 반드시 출처를 남겨주세요.
 """
 import discord
 from discord.ext import commands
